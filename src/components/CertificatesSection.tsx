@@ -14,6 +14,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { CERTIFICATES, Certificate, PERSONAL_INFO } from "@/data/portfolioData";
+import { TiltCard } from "@/components/TiltCard";
 
 export function CertificatesSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -103,10 +104,10 @@ export function CertificatesSection() {
         {/* Certificates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredCerts.map((cert) => (
-            <div
+            <TiltCard
               key={cert.id}
               onClick={() => setActiveModalCert(cert)}
-              className="group relative rounded-2xl border border-white/15 bg-neutral-950/80 p-6 hover:border-[#00d4ff]/50 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              className="group relative rounded-2xl border border-white/15 bg-neutral-950/80 p-6 hover:border-[#00d4ff]/50 transition-colors duration-300 cursor-pointer flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Header row */}
@@ -189,7 +190,7 @@ export function CertificatesSection() {
                   <ExternalLink className="h-3.5 w-3.5" />
                 </div>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
 

@@ -12,6 +12,8 @@ import {
   Download,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
+import { TiltCard } from "@/components/TiltCard";
+import { VoiceIntroductionNode } from "@/components/VoiceIntroductionNode";
 
 interface HeroSectionProps {
   onOpenResume: () => void;
@@ -54,8 +56,11 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
             Full-Stack Developer with <strong className="text-white font-bold">5 years</strong> of total software development experience, including <strong className="text-white font-bold">4 years</strong> building scalable web applications with React, Next.js, Node.js, and MySQL, plus <strong className="text-white font-bold">1+ year</strong> of banking backend engineering with Java and Spring Boot.
           </p>
 
+          {/* Live Voice Node Introduction */}
+          <VoiceIntroductionNode />
+
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href="#projects"
               className="flex items-center gap-2 rounded-xl border border-[#00d4ff]/50 bg-neutral-950 hover:bg-neutral-900 hover:border-[#00d4ff] px-6 py-3.5 text-sm font-semibold text-white active:scale-95 transition-all"
@@ -131,9 +136,11 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
         {/* Stats Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16 pt-8 border-t border-white/15 max-w-5xl mx-auto">
           {PERSONAL_INFO.stats.map((stat, idx) => (
-            <div
+            <TiltCard
               key={idx}
-              className="p-5 rounded-2xl border border-white/15 bg-black text-center hover:border-[#00d4ff]/50 transition-colors shadow-xl"
+              maxTilt={10}
+              liftPx={4}
+              className="p-5 rounded-2xl border border-white/15 bg-black text-center hover:border-[#00d4ff]/50 transition-colors shadow-xl cursor-pointer"
             >
               <div className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
                 {stat.value}
@@ -142,7 +149,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
               {stat.subtext && (
                 <div className="text-[11px] text-[#00d4ff] mt-0.5 font-medium">{stat.subtext}</div>
               )}
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

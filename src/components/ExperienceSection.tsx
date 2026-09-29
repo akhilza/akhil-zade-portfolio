@@ -3,6 +3,7 @@
 import React from "react";
 import { Briefcase, Calendar, MapPin, CheckCircle2, GraduationCap } from "lucide-react";
 import { WORK_EXPERIENCE, EDUCATION } from "@/data/portfolioData";
+import { TiltCard } from "@/components/TiltCard";
 
 export function ExperienceSection() {
   return (
@@ -28,9 +29,11 @@ export function ExperienceSection() {
         {/* Experience Timeline */}
         <div className="space-y-8">
           {WORK_EXPERIENCE.map((exp, idx) => (
-            <div
+            <TiltCard
               key={idx}
-              className="rounded-2xl border border-white/15 bg-black p-6 sm:p-8 hover:border-[#00d4ff]/50 transition-all shadow-2xl"
+              maxTilt={4}
+              liftPx={4}
+              className="rounded-2xl border border-white/15 bg-black p-6 sm:p-8 hover:border-[#00d4ff]/50 transition-colors shadow-2xl cursor-pointer"
             >
               <div className="border-b border-white/10 pb-6">
                 <div className="space-y-1.5">
@@ -82,11 +85,15 @@ export function ExperienceSection() {
                   </span>
                 ))}
               </div>
-            </div>
+            </TiltCard>
           ))}
 
           {/* Education Box */}
-          <div className="rounded-2xl border border-white/15 bg-black p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl hover:border-[#00d4ff]/40 transition-colors">
+          <TiltCard
+            maxTilt={4}
+            liftPx={4}
+            className="rounded-2xl border border-white/15 bg-black p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl hover:border-[#00d4ff]/40 transition-colors cursor-pointer"
+          >
             <div className="flex items-center gap-4">
               <div className="h-12 w-12 rounded-xl bg-neutral-950 border border-[#00d4ff]/40 flex items-center justify-center text-[#00d4ff] shrink-0">
                 <GraduationCap className="h-6 w-6 text-[#00d4ff]" />
@@ -107,7 +114,7 @@ export function ExperienceSection() {
             <div className="text-xs font-mono text-[#00d4ff] font-bold bg-[#00d4ff]/10 border border-[#00d4ff]/40 px-3.5 py-1.5 rounded-lg shrink-0">
               Graduated: {EDUCATION.graduationDate}
             </div>
-          </div>
+          </TiltCard>
         </div>
       </div>
     </section>

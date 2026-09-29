@@ -47,6 +47,14 @@ export const metadata: Metadata = {
     description:
       "Explore interactive live work and portfolio for Akhil Zade - 5+ years building scalable web apps with Next.js, React, and Node.js.",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg?v=2",
+    apple: "/icon.svg?v=2",
+  },
 };
 
 export default function RootLayout({
@@ -59,6 +67,11 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth dark`}
     >
+      <head>
+        <link rel="icon" href="/icon.svg?v=2" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg?v=2" />
+      </head>
       <body className="min-h-screen bg-black text-slate-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 antialiased relative">
         {children}
       </body>

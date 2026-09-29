@@ -4,6 +4,7 @@ import React from "react";
 import { Building2, Code2, Sparkles, ExternalLink, Globe } from "lucide-react";
 import { GitHubIcon } from "@/components/Icons";
 import { COMPANY_PROJECTS, PERSONAL_PROJECTS } from "@/data/portfolioData";
+import { TiltCard } from "@/components/TiltCard";
 
 export function ProjectsSection() {
   return (
@@ -35,9 +36,9 @@ export function ProjectsSection() {
           {/* Company Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {COMPANY_PROJECTS.map((project) => (
-              <div
+              <TiltCard
                 key={project.id}
-                className="rounded-2xl border border-white/15 bg-black p-6 sm:p-7 flex flex-col justify-between hover:border-[#00d4ff]/60 transition-all group"
+                className="rounded-2xl border border-white/15 bg-black p-6 sm:p-7 flex flex-col justify-between hover:border-[#00d4ff]/60 transition-colors group cursor-pointer"
               >
                 <div className="space-y-4">
                   {/* Top Badge & Company */}
@@ -140,7 +141,7 @@ export function ProjectsSection() {
                     )}
                   </div>
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -172,9 +173,9 @@ export function ProjectsSection() {
           {/* Personal Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {PERSONAL_PROJECTS.map((project) => (
-              <div
+              <TiltCard
                 key={project.id}
-                className="rounded-2xl border border-white/15 bg-black p-6 sm:p-7 flex flex-col justify-between hover:border-[#00d4ff]/60 transition-all group"
+                className="rounded-2xl border border-white/15 bg-black p-6 sm:p-7 flex flex-col justify-between hover:border-[#00d4ff]/60 transition-colors group cursor-pointer"
               >
                 <div className="space-y-4">
                   {/* Top Badge */}
@@ -277,7 +278,7 @@ export function ProjectsSection() {
                     )}
                   </div>
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
