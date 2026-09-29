@@ -347,7 +347,7 @@ export const PERSONAL_PROJECTS: ProjectItem[] = [
     ],
     badge: "Live Next.js App",
     githubUrl: "https://github.com/akhilza/akhil-zade-portfolio",
-    liveUrl: "https://akhil-zade-portfolio.vercel.app",
+    liveUrl: "https://akhil-zade-portfolio.onrender.com/",
   },
 ];
 
