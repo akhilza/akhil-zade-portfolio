@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #faf8f5;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* everything is sized in rem, so bumping the root scales the whole layout up
+   for large monitors and TVs */
+@media (min-width: 1536px) { html { font-size: 17px; } }
+@media (min-width: 1920px) { html { font-size: 19px; } }
+@media (min-width: 2560px) { html { font-size: 24px; } }
+@media (min-width: 3200px) { html { font-size: 30px; } }
+@media (max-width: 360px)  { html { font-size: 15px; } }
+
+body {
+  overflow-x: clip;
+  min-height: 100svh;
+  background-color: #faf8f5;
+  color: #18181b;
+  background-image:
+    radial-gradient(900px 500px at 12% -5%, rgba(217, 164, 65, 0.12), transparent 60%),
+    radial-gradient(800px 500px at 100% 30%, rgba(122, 127, 78, 0.1), transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #18181b;
+  color: #faf8f5;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.section-tag {
+  @apply font-mono text-xs uppercase tracking-[0.2em] text-ink-muted;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 60s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee { animation: none; } }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+}
+.float-slow { animation: float 9s ease-in-out infinite; }
+
+@keyframes smoke {
+  0%   { transform: translate3d(-6%, 0, 0) scale(1);    opacity: 0.85; }
+  50%  { transform: translate3d(8%, -14%, 0) scale(1.25); opacity: 0.6; }
+  100% { transform: translate3d(-6%, 0, 0) scale(1);    opacity: 0.85; }
+}
+.smoke { animation: smoke 9s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .smoke { animation: none; } }
